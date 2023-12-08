@@ -3,8 +3,8 @@
 using namespace std;
 
 int main(){
-    string name;
-    int studentID, gear;
+    string name, studentID;
+    int gear;
     cout << "Fahsai: Sawadee ka...Can you tell me your name?" << endl;
     cout << "?????: ";
     getline(cin, name);
@@ -13,11 +13,10 @@ int main(){
     cout << name << ": ";
     cin >> studentID;
     cin.ignore();
-    gear = studentID;
-    while(gear >= 100){
-        gear /= 10;
-    }
-    cout << "Fahsai: I think you may be GEAR " << gear - 12 <<". I have a free movie ticket for you." << endl;
+    // Convert char to int by compare to '0' = 48
+    // (int)'0' - 48 = 0
+    gear = (studentID[0] - 48) * 10 + (studentID[1] - 48) - 12;
+    cout << "Fahsai: I think you may be GEAR " << gear <<". I have a free movie ticket for you." << endl;
     cout << "Fahsai: Let's go to the cinema together!!! "<< endl;
     cout << "Fahsai: What movie do you want to watch?"<< endl;
     string movie;
